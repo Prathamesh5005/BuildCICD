@@ -14,12 +14,10 @@ $zipFilePath = [System.IO.Path]::Combine("build", "$versionName.zip")
 $xmlFilePath = [System.IO.Path]::Combine($customizationPath, "_project", "ProjectMetadata.xml")
 
 $packageName = $versionName
-#$serverUrl = $env:ACUMATICA_URL
-#$username = $env:ACUMATICA_USERNAME
-#$password = $env:ACUMATICA_PASSWORD
-$serverUrl = "http://localhost/UssFence/"
-$username = "admin"
-$password = "Zing@2024"
+$serverUrl = $env:ACUMATICA_URL
+$username = $env:ACUMATICA_USERNAME
+$password = $env:ACUMATICA_PASSWORD
+
 # Ensure the ZIP file exists
 if (-not (Test-Path -LiteralPath $zipFilePath)) {
     Write-Host "Error: Customization package '$zipFilePath' not found. Cannot publish."

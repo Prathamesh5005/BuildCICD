@@ -1,20 +1,20 @@
 ﻿name: Build Acumatica Customization
 
-on:
-  push:
-    branches:
-      - 'release/v*'
-    paths:
-      - 'AcumaticaUSSFenceCustomizations[2024R1]/**'
-      - 'Customizations/AcumaticaUSSFenceCustomizations[2024R1]/**'
-
 # on:
-#   workflow_dispatch:
-#     inputs:
-#       env:
-#         description: 'Environment to deploy to (e.g. Dev)'
-#         required: true
-#         default: 'dev'
+#   push:
+#     branches:
+#       - 'release/v*'
+#     paths:
+#       - 'AcumaticaUSSFenceCustomizations[2024R1]/**'
+#       - 'Customizations/AcumaticaUSSFenceCustomizations[2024R1]/**'
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: 'Environment to deploy to (e.g. Dev)'
+        required: true
+        default: 'dev'
 
 jobs:
   build:
