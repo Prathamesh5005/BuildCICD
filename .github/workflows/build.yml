@@ -92,7 +92,7 @@ jobs:
         shell: Powershell
         run: |
           $date = Get-Date -Format "yyyyMMdd"
-          $zipName = "AcumaticaUSSFenceCustomizations[2024R1-$($date)]"
+          $zipName = "AcumaticaUSSFenceCustomizations[2024R1$($date)]"
           echo "zipName=$zipName" >> $env:GITHUB_OUTPUT
           Powershell ./buildCustomization.ps1 $zipName
 
