@@ -160,7 +160,7 @@ namespace Velixo.Common.CustomizationPackageTools
                 binding.SendTimeout = new TimeSpan(0, 10, 0);
                 binding.ReceiveTimeout = new TimeSpan(0, 10, 0);
 
-                EndpointAddress address = new EndpointAddress(url + "/api/ServiceGate.asmx");
+                EndpointAddress address = new EndpointAddress(url + "/api/ServiceGate.asmx?wsdl");
                 var gate = new ServiceGate.ServiceGateSoapClient(binding, address);
 
                 Console.WriteLine($"\nLogging in to {url}...");
