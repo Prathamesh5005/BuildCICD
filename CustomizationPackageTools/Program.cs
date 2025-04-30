@@ -154,14 +154,29 @@ namespace Velixo.Common.CustomizationPackageTools
             try
             {
 
-                BasicHttpBinding binding = new BasicHttpBinding() { AllowCookies = true };
-                binding.Security.Mode = BasicHttpSecurityMode.None;
-                binding.OpenTimeout = new TimeSpan(0, 10, 0);
-                binding.SendTimeout = new TimeSpan(0, 10, 0);
-                binding.ReceiveTimeout = new TimeSpan(0, 10, 0);
+                // BasicHttpBinding binding = new BasicHttpBinding() { AllowCookies = true };
+                // binding.Security.Mode = BasicHttpSecurityMode.None;
+                // binding.OpenTimeout = new TimeSpan(0, 10, 0);
+                // binding.SendTimeout = new TimeSpan(0, 10, 0);
+                // binding.ReceiveTimeout = new TimeSpan(0, 10, 0);
 
-                EndpointAddress address = new EndpointAddress(url + "/api/ServiceGate.asmx?wsdl");
-                var gate = new ServiceGate.ServiceGateSoapClient(binding, address);
+                // EndpointAddress address = new EndpointAddress(url + "/api/ServiceGate.asmx?wsdl");
+                // var gate = new ServiceGate.ServiceGateSoapClient(binding, address);
+                BasicHttpBinding binding = new BasicHttpBinding
+{
+    AllowCookies = true,
+    Security = new BasicHttpSecurity
+    {
+        Mode = BasicHttpSecurityMode.None
+    },
+    OpenTimeout = TimeSpan.FromMinutes(10),
+    SendTimeout = TimeSpan.FromMinutes(10),
+    ReceiveTimeout = TimeSpan.FromMinutes(10)
+};
+
+EndpointAddress address = new EndpointAddress(url + "/api/ServiceGate.asmx");
+var gate = new ServiceGate.ServiceGateSoapClient(binding, address);
+
 
                 Console.WriteLine($"\nLogging in to {url}...");
                 var cookies = await AcumaticaLogin(url, username, password);
