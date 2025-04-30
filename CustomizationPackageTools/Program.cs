@@ -155,7 +155,7 @@ namespace Velixo.Common.CustomizationPackageTools
             {
 
                 BasicHttpBinding binding = new BasicHttpBinding() { AllowCookies = true };
-                binding.Security.Mode = BasicHttpSecurityMode.Transport;
+                binding.Security.Mode = BasicHttpSecurityMode.None;
                 binding.OpenTimeout = new TimeSpan(0, 10, 0);
                 binding.SendTimeout = new TimeSpan(0, 10, 0);
                 binding.ReceiveTimeout = new TimeSpan(0, 10, 0);
