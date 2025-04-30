@@ -18,7 +18,28 @@ $packageName = $versionName
 $serverUrl = $env:ACUMATICA_URL
 $username = $env:ACUMATICA_USERNAME
 $password = $env:ACUMATICA_PASSWORD
-
+$missing = @()
+#Ensure serverUrl exist
+if (-not $serverUrl -or $serverUrl.Trim() -eq "") {
+    $missing += "ACUMATICA_URL"
+}
+#Ensure username exist
+if (-not $username -or $username.Trim() -eq "") {
+    $missing += "ACUMATICA_USERNAME"
+}
+#Ensure password exist
+if (-not $password -or $password.Trim() -eq "") {
+    $missing += "ACUMATICA_PASSWORD"
+}
+if ($missing.Count -gt 0) {
+    Write-Host "Error: The following required environment variables are missing:`n - $($missing -join "`n - ")"
+    exit 1
+}
+# Ensure the ZIP file exists
+if (-not (Test-Path -LiteralPath $zipFilePath)) {
+    Write-Host "Error: Customization package '$zipFilePath' not found. Cannot publish."
+    exit 1
+}
 # Ensure the ZIP file exists
 if (-not (Test-Path -LiteralPath $zipFilePath)) {
     Write-Host "Error: Customization package '$zipFilePath' not found. Cannot publish."
