@@ -48,8 +48,8 @@ if (-not $Description -or $Description.Trim() -eq "") {
 
 Write-Host "Level of PackG: $Level"
 
-$cmd = "dlls\CustomizationPackageTools\CustomizationPackageTools.exe"
-# $cmd = "CustomizationPackageTools\bin\Release\net8.0\CustomizationPackageTools.exe"
+#$cmd = "dlls\CustomizationPackageTools\CustomizationPackageTools.exe"
+$cmd = "CustomizationPackageTools\bin\Release\net8.0\CustomizationPackageTools.exe"
 
 # Execute the publish command safely
 &$cmd publish --packagefilename "$zipFilePath" --packagename "$packageName" --url "$serverUrl" --username "$username" --password "$password" --description "$Description" --level "$Level"

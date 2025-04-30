@@ -56,8 +56,8 @@ if (![string]::IsNullOrWhiteSpace($zipFileName)) {
     }
 }
 
-$cmd = "dlls\CustomizationPackageTools\CustomizationPackageTools.exe"
-#$cmd = "CustomizationPackageTools\bin\Release\net8.0\CustomizationPackageTools.exe"
+#$cmd = "dlls\CustomizationPackageTools\CustomizationPackageTools.exe"
+$cmd = "CustomizationPackageTools\bin\Release\net8.0\CustomizationPackageTools.exe"
 
 # Execute the build command safely
 
