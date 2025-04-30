@@ -82,12 +82,12 @@ jobs:
             Write-Host "Source path not found: $source"
           }
 
-      # - name: Build CustomizationPackageTools.exe
-      #   run: |
-      #       cd CustomizationPackageTools
-      #       dotnet build --configuration Release
-      #       cd ..
-      #   shell: powershell
+      - name: Build CustomizationPackageTools.exe
+        run: |
+            cd CustomizationPackageTools
+            dotnet build --configuration Release
+            cd ..
+        shell: powershell
 
       - name: Build Customization Package
         id: build
